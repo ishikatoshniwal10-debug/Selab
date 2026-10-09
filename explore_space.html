@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Space</title>
+  <style>
+    :root {
+      --bg: #081226;
+      --panel: #111f3d;
+      --text: #f4f7ff;
+      --muted: #b7c4e3;
+      --accent: #8ce7ff;
+      --accent2: #c5a7ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, #263a70 0, transparent 28%),
+        radial-gradient(circle at 85% 30%, #39235e 0, transparent 25%),
+        var(--bg);
+      line-height: 1.6;
+    }
+    header {
+      padding: 64px 20px 52px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(140,231,255,.12), rgba(197,167,255,.1));
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .8rem;
+      font-weight: bold;
+    }
+    h1 { font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 1.05; margin: 14px 0; }
+    header p { max-width: 650px; margin: 0 auto; color: var(--muted); font-size: 1.1rem; }
+    main { width: min(1050px, 92%); margin: 36px auto 64px; }
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: rgba(17,31,61,.86);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.16);
+    }
+    .icon { font-size: 2rem; }
+    h2 { margin-top: 0; color: var(--accent); }
+    .card p, .fact p { color: var(--muted); }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .fact strong { display: block; font-size: 1.7rem; color: var(--accent2); margin-bottom: 4px; }
+    .quiz { margin-top: 28px; }
+    .quiz button {
+      display: block; width: 100%; text-align: left; margin: 10px 0; padding: 13px 15px;
+      border-radius: 10px; border: 1px solid rgba(255,255,255,.2);
+      background: #1b2c50; color: var(--text); cursor: pointer; font-size: 1rem;
+    }
+    .quiz button:hover { border-color: var(--accent); background: #243b68; }
+    #feedback { min-height: 28px; font-weight: bold; color: var(--accent); }
+    footer { text-align: center; color: var(--muted); padding: 24px; border-top: 1px solid rgba(255,255,255,.12); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">A little cosmic curiosity</div>
+    <h1>Explore Space 🚀</h1>
+    <p>Look beyond our world and discover the stars, planets, and mysteries that make the universe so fascinating.</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="Space highlights">
+      <article class="card">
+        <div class="icon">🌍</div>
+        <h2>Our Home</h2>
+        <p>Earth is the only planet currently known to support life. Its atmosphere, liquid water, and suitable temperatures help make that possible.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🔴</div>
+        <h2>The Red Planet</h2>
+        <p>Mars gets its rusty colour from iron-rich dust. Scientists study it to learn whether life may once have existed there.</p>
+      </article>
+      <article class="card">
+        <div class="icon">✨</div>
+        <h2>Faraway Stars</h2>
+        <p>Stars are giant spheres of hot gas that release energy. The Sun is the star closest to Earth.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Space at a glance</h2>
+      <div class="facts">
+        <div class="fact"><strong>8</strong><p>planets in our Solar System</p></div>
+        <div class="fact"><strong>~384,400 km</strong><p>average distance from Earth to the Moon</p></div>
+        <div class="fact"><strong>~300,000 km/s</strong><p>speed of light in a vacuum</p></div>
+      </div>
+    </section>
+
+    <section class="card quiz">
+      <h2>Quick space quiz 🪐</h2>
+      <p><strong>Which planet is known as the Red Planet?</strong></p>
+      <button onclick="checkAnswer(false)">A. Venus</button>
+      <button onclick="checkAnswer(true)">B. Mars</button>
+      <button onclick="checkAnswer(false)">C. Neptune</button>
+      <p id="feedback" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>Made with HTML, CSS, and a little JavaScript · Keep looking up 🌌</footer>
+
+  <script>
+    function checkAnswer(correct) {
+      const feedback = document.getElementById('feedback');
+      feedback.textContent = correct
+        ? 'Correct! Mars is called the Red Planet. 🎉'
+        : 'Not quite — try again! Hint: it begins with M.';
+    }
+  </script>
+</body>
+</html>
